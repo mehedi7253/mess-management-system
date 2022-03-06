@@ -39,4 +39,17 @@
 <script src="js/sb-admin.min.js"></script>
 
 <!-- Demo scripts for this page-->
-
+<script>
+    CKEDITOR.replace('application',
+        {
+            height:300,
+            resize_enabled:true,
+            wordcount: {
+                showParagraphs: false,
+                showWordCount: true,
+                showCharCount: true,
+                countSpacesAsChars: true,
+                countHTML: false,
+                maxCharCount: 20}
+        });
+</script>

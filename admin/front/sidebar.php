@@ -24,8 +24,8 @@
             <span>Bazar Cost</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="bazar/create.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Cost</a>
-            <a class="dropdown-item" href="bazar/index.php"><i class="fa fa-edit text-danger"></i>  Manage Cost</a>
+            <a class="dropdown-item" href="create-bazarcost.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Cost</a>
+            <a class="dropdown-item" href="bazar-cost.php"><i class="fa fa-edit text-danger"></i>  Manage Cost</a>
         </div>
     </li>
     <li class="nav-item dropdown">
