@@ -34,8 +34,8 @@
             <span> Meal</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="meal/create.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Meal</a>
-            <a class="dropdown-item" href="member/create.php"><i class="fa fa-edit text-danger"></i>  Manage Meal</a>
+            <a class="dropdown-item" href="add-meal.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Meal</a>
+            <a class="dropdown-item" href="manage-meal.php"><i class="fa fa-edit text-danger"></i>  Manage Meal</a>
         </div>
     </li>
     <li class="nav-item dropdown">
