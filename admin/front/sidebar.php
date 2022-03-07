@@ -54,8 +54,8 @@
             <span> Report</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="add-multi.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Multi Menu</a>
-            <a class="dropdown-item" href="manage-multi.php"><i class="fa fa-edit text-danger"></i>  Manage Multi Menu</a>
+            <a class="dropdown-item" href="total-meal.php"><i class="fas fa-plus" style="color: #007bff"></i> Total Meal</a>
+            <a class="dropdown-item" href="per-person-meal.php"><i class="fa fa-edit text-danger"></i> Person Meal</a>
         </div>
     </li>
 </ul>
