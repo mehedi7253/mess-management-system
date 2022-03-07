@@ -31,7 +31,7 @@ $user_data = mysqli_fetch_assoc($sql);
                     <li class="breadcrumb-item">
                         <a href="#">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active">Manage Meal</li>
+                    <li class="breadcrumb-item active">Manage Bazar Dor</li>
                 </ol>
 
                 <!-- Icon Cards-->
@@ -39,7 +39,7 @@ $user_data = mysqli_fetch_assoc($sql);
                     <div class="col-md-12 mx-auto">
                         <div class="card">
                             <div class="card-header">
-                                <h3>Manage Meal <a href="add-meal.php" class="btn btn-primary float-right">Add Meal</a> </h3>
+                                <h3>Manage Bazar Dor <a href="bazar-dor.php" class="btn btn-primary float-right">Add Bazar Dor</a> </h3>
                             </div>
                             <div class="card-body">
                                 <?php
@@ -59,35 +59,25 @@ $user_data = mysqli_fetch_assoc($sql);
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Date</th>
-                                                <th>Total Meal</th>
+                                                <th>Item Name</th>
+                                                <th>Price</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $sql = "SELECT * FROM meals, members where meals.member_id = members.id GROUP BY meals.date";
+                                            $sql = "SELECT * FROM weakly_bazars";
                                             $res = mysqli_query($connect, $sql);
                                             $i = 1;
 
                                             while ($row = mysqli_fetch_assoc($res)) { ?>
                                                 <tr>
                                                     <td><?php echo $i++; ?></td>
-                                                    <td><?php echo @date('d', strtotime($row['date'])) ?></td>
+                                                    <td><?php echo $row['item_name'] ?></td>
+                                                    <td><?php echo number_format($row['price'], 2); ?></td>
                                                     <td>
-                                                        <?php
-                                                        $total = "SELECT SUM(day_meal) as DayTotal, SUM(night_meal) as NightTotal FROM meals WHERE date = '$row[date]'";
-                                                        $result = mysqli_query($connect, $total);
-
-                                                        while ($total_meal = mysqli_fetch_assoc($result)) { ?>
-                                                            <?php echo $meal = $total_meal['NightTotal'] + $total_meal['DayTotal']; ?>
-                                                        <?php }
-
-                                                        ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="meal_view.php?meal=<?php echo $row['date'] ?>" class="btn btn-info">View</a>
-                                                        <a href="update_meal.php?meal_date=<?php echo $row['date'] ?>" class="btn btn-danger">Edit</a>
+                                                        <a href="update-bazar-dor.php?dor_id=<?php echo $row['id'] ?>" class="btn btn-info">Edit</a>
+                                                        <a href="delete.php?dor_id=<?php echo $row['id'] ?>" class="btn btn-danger">Delete</a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -112,7 +102,6 @@ $user_data = mysqli_fetch_assoc($sql);
     <?php include "front/footer.php"; ?>
 
 
-   
 </body>
 
 </html>

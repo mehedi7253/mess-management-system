@@ -31,7 +31,7 @@ $user_data = mysqli_fetch_assoc($sql);
                     <li class="breadcrumb-item">
                         <a href="#">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active">Add Meal</li>
+                    <li class="breadcrumb-item active">Update Meal</li>
                 </ol>
 
                 <!-- Icon Cards-->
@@ -39,20 +39,25 @@ $user_data = mysqli_fetch_assoc($sql);
                     <div class="col-md-10 mx-auto">
                         <div class="card">
                             <div class="card-header">
-                                <h3>Add Meal <a href="manage-meal.php" class="btn btn-primary float-right">Manage Meal</a> </h3>
+                                <h3>Update Meal <a href="manage-meal.php" class="btn btn-primary float-right">Manage Meal</a> </h3>
                             </div>
                             <div class="card-body">
 
                                 <?php
+                                if (isset($_GET['meal_date'])) {
+                                    $meal_date = $_GET['meal_date'];
+                                    $meal = "SELECT * FROM meals,members WHERE meals.member_id = members.id AND date = '$meal_date'";
+                                    $res  = mysqli_query($connect, $meal);
+                                    $i = 1;
+                                }
                                 if (isset($_POST['btn'])) {
                                     foreach ($_POST['member_id'] as $id => $meal) {
 
                                         $date        = $_POST['date'];
-                                        $member_id   = $_POST['member_id'][$id];
                                         $day_meal    = $_POST['day_meal'][$id];
                                         $night_meal  = $_POST['night_meal'][$id];
 
-                                        $sql = "INSERT INTO meals (date,member_id,day_meal,night_meal) values ('$date', '$member_id','$day_meal','$night_meal')";
+                                        $sql = "UPDATE meals SET date = '$date',  day_meal = '$day_meal', night_meal = '$night_meal' WHERE date = '$meal_date'";
                                         $res = mysqli_query($connect, $sql);
                                     }
 
@@ -67,9 +72,7 @@ $user_data = mysqli_fetch_assoc($sql);
                                 <form action="" method="POST">
                                     <div class="form-group col-md-6 col-sm-12 float-left">
                                         <label>Date <sup class="text-danger font-weight-bold">*</sup></label>
-                                        <input type="date" name="date" class="form-control" value="<?php if ($_POST) {
-                                                                                                        echo $_POST['date'];
-                                                                                                    } ?>">
+                                        <input type="date" name="date" class="form-control" value="<?php echo $meal_date ?>">
                                     </div>
 
                                     <div class="table-responsive col-md-12">
@@ -84,9 +87,6 @@ $user_data = mysqli_fetch_assoc($sql);
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $sql = "SELECT * FROM members WHERE email != 'admin@gmail.com'";
-                                                $res = mysqli_query($connect, $sql);
-                                                $i = 1;
                                                 while ($row = mysqli_fetch_assoc($res)) { ?>
                                                     <tr>
                                                         <td><?php echo $i++; ?></td>
@@ -95,10 +95,10 @@ $user_data = mysqli_fetch_assoc($sql);
                                                             <?php echo $row['name']; ?>
                                                         </td>
                                                         <td>
-                                                            <input name="day_meal[]" type="number" class="form-control" min="0" value="0">
+                                                            <input name="day_meal[]" type="number" class="form-control" min="0" value="<?php echo $row['day_meal'] ?>">
                                                         </td>
                                                         <td>
-                                                            <input name="night_meal[]" type="number" min="0" value="0" class="form-control">
+                                                            <input name="night_meal[]" type="number" min="0" value="<?php echo $row['night_meal'] ?>" class="form-control">
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
@@ -106,7 +106,7 @@ $user_data = mysqli_fetch_assoc($sql);
                                         </table>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input type="submit" name="btn" value="Submit" class="btn btn-success btn-block">
+                                        <input type="submit" name="btn" value="Update" class="btn btn-success btn-block">
                                     </div>
                                 </form>
                             </div>

@@ -12,4 +12,14 @@
         header('Location: manage-member.php');
     }
 
+    if (isset($_GET['dor_id'])) {
+        $dor_id = $_GET['dor_id'];
+
+        $sql = $connect->query("DELETE FROM weakly_bazars WHERE id = '$dor_id'");
+
+        $_SESSION['success'] = 'Remove Successful';
+        header('Location: manage-bazar-dor.php');
+    }
+
+
 ?>

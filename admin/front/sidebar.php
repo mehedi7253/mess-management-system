@@ -44,8 +44,8 @@
             <span> Bazar Dor</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="bazar-dor/create.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Bazar Dor</a>
-            <a class="dropdown-item" href="bazar-dor/index.php"><i class="fa fa-edit text-danger"></i>  Manage Bazar Dor</a>
+            <a class="dropdown-item" href="bazar-dor.php"><i class="fas fa-plus" style="color: #007bff"></i> Add Bazar Dor</a>
+            <a class="dropdown-item" href="manage-bazar-dor.php"><i class="fa fa-edit text-danger"></i>  Manage Bazar Dor</a>
         </div>
     </li>
     <li class="nav-item dropdown">
