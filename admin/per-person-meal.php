@@ -37,11 +37,11 @@ $user_data = mysqli_fetch_assoc($sql);
                 <!-- Icon Cards-->
                 <div class="row">
                     <div class="col-md-12 mx-auto mb-5">
-                        <div class="card">
+                        <div class="card" >
                             <div class="card-header">
                                 <h3>Member Report</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" id="mainFrame">
                                 <?php
                                     if (isset($_POST['search'])) {
                                         $searchKey = $_POST['src'];
@@ -186,7 +186,7 @@ $user_data = mysqli_fetch_assoc($sql);
 
                                                 <hr/>
                                                 <h3>Meal Rate </h3>
-                                                <div class="table-responsive col-md-5 float-left">
+                                                <div class="table-responsive col-md-6 float-left">
                                                     <table class="table table-bordered ">
                                                         <?php
                                                             $totalMeal = "SELECT SUM(day_meal + night_meal) AS TotalMeal FROM meals WHERE MONTH(date) = '$searchKey'";
@@ -216,7 +216,7 @@ $user_data = mysqli_fetch_assoc($sql);
                                                 </div>
                                                 
 
-                                                <div class="table-responsive col-md-5 float-left">
+                                                <div class="table-responsive col-md-6 float-left">
                                                     <table class="table table-bordered ">
                                                         
                                                         <tr>
@@ -251,6 +251,9 @@ $user_data = mysqli_fetch_assoc($sql);
                                     }
                                 ?>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success float-right"  type="pss" id="prntPSS">Print</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -266,7 +269,17 @@ $user_data = mysqli_fetch_assoc($sql);
 
 
     <?php include "front/footer.php"; ?>
-
+    <script type="application/javascript">
+    $(document).ready(function () {
+        $('#prntPSS').click(function() {
+            var printContents = $('#mainFrame').html();
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        });
+    });
+</script>
 </body>
 
 </html>
