@@ -54,8 +54,9 @@
             <span> Report</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="total-meal.php"><i class="fas fa-plus" style="color: #007bff"></i> Total Meal</a>
-            <a class="dropdown-item" href="per-person-meal.php"><i class="fa fa-edit text-danger"></i> Person Meal</a>
+            <a class="dropdown-item" href="total-meal.php"><i class="far fa-file-alt text-secondary"></i>  Total Meal</a>
+            <a class="dropdown-item" href="total-bazar.php"><i class="far fa-file-alt text-secondary"></i> Total Bazar</a>
+            <a class="dropdown-item" href="per-person-meal.php"><i class="far fa-file-alt text-secondary"></i> Person Meal</a>
         </div>
     </li>
 </ul>

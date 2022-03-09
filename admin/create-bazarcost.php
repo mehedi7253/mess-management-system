@@ -86,8 +86,7 @@
                                         <?php
                                             while($row = mysqli_fetch_assoc($sql_members)){?>
                                                 <option value="<?php echo $row['id'];?>"><?php echo $row['name'];?></option>
-                                            <?php }?>
-                                        ?>
+                                        <?php }?>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12 float-left">

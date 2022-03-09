@@ -41,6 +41,7 @@
                         </div>
                         <div class="card-body">
                             <?php
+                             global  $connect;
                             if (isset($_POST['user_login'])){
                                 $email    = $_POST['email'];
                                 $password = $_POST['password'];
